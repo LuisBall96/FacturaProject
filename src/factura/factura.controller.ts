@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, ParseIntPipe, Param } from '@nestjs/common';
 import { FacturaService } from './factura.service';
 import { CreateFacturaDto } from './dto/create-factura.dto';
 
@@ -14,7 +14,12 @@ export class FacturaController {
 
     @Get()
     getFacturas(){
-        return this.facturaService.getFactura()
+        return this.facturaService.getFacturas()
+    }
+
+    @Get(':id')
+    getFactura(@Param('id', ParseIntPipe) id: number ){
+        return this.facturaService.getFactura(id);
     }
 
 }

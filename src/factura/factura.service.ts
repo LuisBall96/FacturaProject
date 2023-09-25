@@ -21,11 +21,23 @@ export class FacturaService {
         return this.facturasRepository.save(newFactura)
     }
 
-    getFactura() {
+    getFacturas() {
         return this.facturasRepository.find({
             relations: ['user'],
         })
     }
 
+    async getFactura(id: number){
+        const facturaFound = await this.facturasRepository.findOne({
+            where: {
+                id
+            }
+        });
+
+        if (!facturaFound) {
+            return new HttpException('Factura not found', HttpStatus.NOT_FOUND)
+        }
+        return facturaFound;
+    }
 
 }

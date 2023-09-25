@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FacturaModule } from './factura/factura.module';
+import { ConceptoModule } from './concepto/concepto.module';
+import { DetalleModule } from './detalle/detalle.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { FacturaModule } from './factura/factura.module';
     }),
     UserModule,
     FacturaModule,
+    ConceptoModule,
+    DetalleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
