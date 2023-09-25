@@ -57,13 +57,22 @@ DELETE localhost:3000/user/1
 
 #### Crear una Factura (POST)
 
+#### Primero crea un Usuario (POST)
+
+POST localhost:3000/user
+
+{
+"name": "Luis",
+"address": "Calle 1",
+"telephone": "2121212"
+}
 
 POST localhost:3000/factura
 
 {
 "numero": "1",
 "total": 23,
-"userId": 2
+"userId": 1
 }
 
 
